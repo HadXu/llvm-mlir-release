@@ -33,7 +33,7 @@ DOCKER_FILE_PATH="scripts/docker_ubuntu-18.04/Dockerfile"
 
 echo "Building $DOCKER_REPOSITORY:$DOCKER_TAG using $DOCKER_FILE_PATH"
 
-docker build -t $DOCKER_REPOSITORY:$DOCKER_TAG --build-arg cmake_configs="${CMAKE_CONFIGS}" --build-arg num_jobs=4 --build-arg install_dir_name="${install_prefix}" -f "$BUILD_DIR/$DOCKER_FILE_PATH" "$BUILD_DIR"
+docker build -t $DOCKER_REPOSITORY:$DOCKER_TAG --build-arg cmake_configs="${CMAKE_CONFIGS}" --build-arg num_jobs=8 --build-arg install_dir_name="${install_prefix}" -f "$BUILD_DIR/$DOCKER_FILE_PATH" "$BUILD_DIR"
 
 DOCKER_ID="$(docker create $DOCKER_REPOSITORY:$DOCKER_TAG)"
 
