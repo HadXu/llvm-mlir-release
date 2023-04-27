@@ -1,0 +1,7 @@
+name: Build
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "demo build"       
