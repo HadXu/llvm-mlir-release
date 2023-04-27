@@ -1,7 +1,22 @@
 name: Build
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "demo build"       
+      - name: checkout submodules
+      run: |
+        git submodule update --init --recursive
+
+      - name: Compile
+      run: |
+        bash build.bash
+        mkdir -p ${{ github.sha }}
+        mv *.tar.xz ${{ github.sha }}/
+  # upload-tarballs:
+  #   runs-on: ubuntu-latest
+  #   needs: [build]
+
+
+  
+
