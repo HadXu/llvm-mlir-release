@@ -3,18 +3,15 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: checkout submodules
-      run: |
-        git submodule update --init --recursive
+        run: |
+          git submodule update --init --recursive
 
       - name: Compile
-      run: |
-        bash build.bash
-        mkdir -p ${{ github.sha }}
-        mv *.tar.xz ${{ github.sha }}/
-
-
+        run: |
+          bash build.bash
+          mkdir -p ${{ github.sha }}
+          mv *.tar.xz ${{ github.sha }}/
   
 
