@@ -3,6 +3,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: checkout submodules
       run: |
@@ -13,9 +14,6 @@ jobs:
         bash build.bash
         mkdir -p ${{ github.sha }}
         mv *.tar.xz ${{ github.sha }}/
-  # upload-tarballs:
-  #   runs-on: ubuntu-latest
-  #   needs: [build]
 
 
   
