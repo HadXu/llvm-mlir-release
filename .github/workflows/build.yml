@@ -21,7 +21,7 @@ jobs:
 
           OUTPUT="llvm+mlir-${LLVM_VER}-${CPU_ARCH}-${PLATFORM_NAME}-release"
 
-          bash build.bash -o "$OUTPUT"
+          bash build.bash "$OUTPUT"
           mkdir -p ${{ github.sha }}
           mv *.tar.xz ${{ github.sha }}/
       
